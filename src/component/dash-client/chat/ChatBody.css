@@ -1,0 +1,50 @@
+.message__container {
+    
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  .message__chats {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+  
+  .message__chats--right {
+    align-self: flex-end;
+    text-align: right;
+  }
+  
+  .message__chats--left {
+    align-self: flex-start;
+    text-align: left;
+  }
+  
+  .message__sender {
+    background-color: #007bff; /* Blue color for current user's message */
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .message__sender--highlight {
+    background-color: #007bff; /* Ensure this matches the current user's color */
+  }
+  
+  .message__recipient {
+    background-color: #f1f1f1; /* Gray color for recipient's message */
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .sender__name {
+    font-weight: bold;
+  }
+  
+  .message__status {
+    text-align: center;
+    font-style: italic;
+  }
+  
