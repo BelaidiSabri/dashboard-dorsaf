@@ -9,7 +9,7 @@ const Modal = ({ show, onClose, children }) => {
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content" style={{maxWidth:'600px'}}>
         <button className="close-button" onClick={onClose}>×</button>
         {children}
       </div>

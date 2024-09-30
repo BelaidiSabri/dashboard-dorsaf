@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './AddContact.css';
+
 
 const AddContact = ({ currentUser }) => {
   const [users, setUsers] = useState([]);
@@ -62,10 +64,10 @@ const AddContact = ({ currentUser }) => {
 
   return (
     <div className="add-contact">
-      <h3>Add Contact</h3>
+      {/* <h3>Add Contact</h3> */}
       <input 
         type="text" 
-        placeholder="Search by email..." 
+        placeholder="Rechercher par email..." 
         value={searchEmail}
         onChange={handleSearch}
       />
@@ -74,7 +76,7 @@ const AddContact = ({ currentUser }) => {
           <li key={user._id}>
             {user.name} ({user.email})
             {!isAlreadyContact(user._id) && (
-              <button onClick={() => handleAddContact(user._id)}>Add Contact</button>
+              <button onClick={() => handleAddContact(user._id)}>Ajouter un contact</button>
             )}
           </li>
         ))}

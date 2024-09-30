@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: column;
     background-size: cover;
+    justify-content: center;
+    align-items: center;
 }
 
 .chat-header {
@@ -229,6 +231,10 @@
         display: flex !important;
     }
 }
+
+
+
+
 
 @media (min-width: 1200px) {
     .sidebarbar {

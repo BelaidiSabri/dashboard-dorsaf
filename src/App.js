@@ -20,6 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Cookies from 'js-cookie'
 import socketIO from "socket.io-client"
 import "./App.css"
+import Payment from "./component/dash-client/Payment";
 const App = () => {
   const token = Cookies.get('token')
   const socket = socketIO.connect("http://localhost:5000")
@@ -31,12 +32,13 @@ const App = () => {
         <>
         <Sidebar />
         <NavBar />
-        <div id="content" style={{ marginLeft: "250px", padding: "20px" }}>
+        <div id="content" style={{ marginLeft: "250px", padding: "0 80px" }}>
           <Routes>
             <Route path="/Livre" element={<Livre />} />
             <Route path="/Offer" element={<Offer />} />
             <Route path="/Profil" element={<Profil/>}/>
             <Route path="/Tarif" element={<Tarif/>}/>
+            <Route path="/Payment" element={<Payment/>}/>
             <Route path="/NouveauOffre" element={<NouveauOffre/>}/>
             <Route path="/Modal" element={<Modal/>}/>
             <Route path="/" element={<Dashboard/>}/>
@@ -53,7 +55,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Homee/>}/>
           <Route path="/login" element={<Login socket={socket} />} />
- 
         </Routes>
        
        )}

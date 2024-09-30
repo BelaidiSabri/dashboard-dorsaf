@@ -52,7 +52,7 @@ const NavBar = () => {
           </details>
         </div>
       </div>
-      <hr style={{color:"#00B4CC"}}></hr>
+      {/* <hr style={{color:"#00B4CC"}}></hr> */}
     </nav>
   );
 };

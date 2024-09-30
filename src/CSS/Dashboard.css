@@ -19,7 +19,7 @@
 .top-cards{
 display: grid;
 grid-template-columns: repeat(3,1fr);
-padding: 20px 100px;
+/* padding: 20px 100px; */
 }
 .card {
     flex: 1;
@@ -29,29 +29,39 @@ padding: 20px 100px;
     color: white;
     text-align: center;
     position: relative;
+    border: none;
+}
+.card *{
+    color: white;
 }
 
 .card.blue {
-    background-color: #2A9FD8;
+    background-color: #4169E1;
     
 }
 
 .card.white {
-    background-color: #E8F0FE;
+    background-color: #00CED1;
     color: #333;
 }
 
 .card.red {
-    background-color: #F55C47;
+    background-color: #FFA07A;
 }
 
-.offersss {
+/* .offersss {
     margin-bottom: 20px;
     background-color: white;
     width: 100%;
     border-radius: 15px;
     padding: 10px 30px;
     box-shadow:8px 0px 8px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.offersss {
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .consult{
     background-color: #00B4CC;
@@ -95,9 +105,14 @@ padding: 20px 100px;
     font-size: 26px;
 }
 
-.stats {
+/* .stats {
     text-align: left;
     padding: 0px 10px;
+} */
+.stats {
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .stats h3{
     color: #00B4CC;

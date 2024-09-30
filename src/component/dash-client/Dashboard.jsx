@@ -63,7 +63,7 @@ const Dashboard = () => {
     <div className="dashboard">
       <h2>Dashboard :</h2>
       <div className="top-cards">
-        <div className="card blue">
+        <div className="card blue" >
           <h3>Vendée</h3>
           <p>(Budget)</p>
           <h2>0 dt</h2>
@@ -119,7 +119,6 @@ const Dashboard = () => {
         </div>
         
         <div className="stats">
-            <br/>
           <h3>
             Statistiques <span >(2023)</span>
           </h3>

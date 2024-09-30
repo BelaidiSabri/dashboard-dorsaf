@@ -12,17 +12,18 @@ function Accueil() {
       {" "}
       <div className="total-accueil">
         <div className="left-accueil">
+          <h1 style={{lineHeight:'normal' ,fontSize:'2rem'}}> 69 Resultats </h1>
           <div className="inpt">
             <div className="cont">
               <select className="dropdown1">
-                <option value="">Select Livre</option>
+                <option value="">Sélectionnez un livre</option>
                 <option value="livre1">Livre 1</option>
                 <option value="livre2">Livre 2</option>
                 <option value="livre2">Livre 3</option>
               </select>
 
               <select className="dropdown1">
-                <option value="">Select Country</option>
+                <option value="">Sélectionnez une ville</option>
                 <option value="country1">Tunis</option>
                 <option value="country2">Soussa</option>
                 <option value="country2">Sfax</option>
@@ -35,7 +36,6 @@ function Accueil() {
             </div>
           </div>
           <Container fluid>
-            <h1> 69 Resultats </h1>
             <Row>
               <Col>
                 <Carousel interval={2000}>
@@ -58,7 +58,7 @@ function Accueil() {
                                   backgroundColor: "#F3BCA6",
                                   padding: "5px",
                                   borderRadius: "15px",
-                                  color:'#E6815D',
+                                  color: "#E6815D",
                                 }}
                               >
                                 Etudiant
@@ -104,7 +104,7 @@ function Accueil() {
                                   backgroundColor: "#F3BCA6",
                                   padding: "5px",
                                   borderRadius: "15px",
-                                  color:'#E6815D',
+                                  color: "#E6815D",
                                 }}
                               >
                                 Etudiant
@@ -116,7 +116,6 @@ function Accueil() {
                                   fontWeight: "800",
                                   color: "black",
                                   padding: "2px",
-                                
                                 }}
                               >
                                 Livres 3eme années
@@ -151,7 +150,7 @@ function Accueil() {
                                   backgroundColor: "#F3BCA6",
                                   padding: "5px",
                                   borderRadius: "15px",
-                                  color:'#E6815D',
+                                  color: "#E6815D",
                                 }}
                               >
                                 Etudiant
@@ -163,7 +162,6 @@ function Accueil() {
                                   fontWeight: "800",
                                   color: "black",
                                   padding: "2px",
-                                  
                                 }}
                               >
                                 Livres 3eme années
@@ -184,11 +182,11 @@ function Accueil() {
           </Container>
         </div>
         <div className="right-accueil">
-            <Map/>
+          <Map />
         </div>
       </div>
-      <br/>
-      <Footer/>
+      <br />
+      <Footer />
     </>
   );
 }

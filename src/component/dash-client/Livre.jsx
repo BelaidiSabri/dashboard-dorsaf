@@ -1,13 +1,20 @@
 // Livre.js
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../../CSS/Livre.css";
 import Footer from "./Footer";
 
 function Livre() {
+
+  const navigate = useNavigate();
   const location = useLocation();
   const offer = location.state?.offer; // Get the offer data
-  console.log(location)
+  console.log(location);
+
+  const handleBuy = () => {
+    navigate("/Payment", { state: { offer } });
+  };
+
   return (
     <>
       <div className="app-containerrs">
@@ -19,10 +26,16 @@ function Livre() {
           <div className="book-card">
             <img src={"/livres.jpg"} alt="Books" className="book-image" />
             <div className="book-info">
-              <span className="badge">{offer?.status ? offer.status  : "status"}</span>
+              <span className="badge">
+                {offer?.status ? offer.status : "status"}
+              </span>
               <h2>{offer?.nom || "Titre du livre"}</h2>
-              <p className="price">{offer?.prix ? `${offer.prix} DT` : "Prix non disponible"}</p>
-              <button className="buy-button">Achetez</button>
+              <p className="price">
+                {offer?.prix ? `${offer.prix} DT` : "Prix non disponible"}
+              </p>
+              <button className="buy-button" onClick={handleBuy}>
+                Achetez
+              </button>
             </div>
           </div>
           <div className="user-details">
@@ -45,9 +58,7 @@ function Livre() {
             </p>
           </div>
         </div>
-        <div className="sidebar">
-          {/* Sidebar content */}
-        </div>
+        <div className="sidebar">{/* Sidebar content */}</div>
       </div>
       <Footer />
     </>

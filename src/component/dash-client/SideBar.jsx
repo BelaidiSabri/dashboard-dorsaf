@@ -6,12 +6,21 @@ import '../../CSS/SideBar.css';
 function Sidebar() {
   const navigate = useNavigate(); // useNavigate hook
 
-  // Function to handle deconnexion
-  const handleLogout = () => {
-    // Add your logout logic here, e.g., removing tokens from localStorage
-    localStorage.removeItem('authToken'); // Example: Remove token from localStorage
-    navigate('/login'); // Redirect to login page after logout
-  };
+  function deleteCookie(name) {
+    document.cookie = name + '=; Max-Age=0; path=/';
+}
+
+
+// Function to handle deconnexion
+const handleLogout = () => {
+  // Remove tokens or other logout logic
+  localStorage.removeItem('authToken');
+  deleteCookie('token');
+  
+  navigate('/login'); // Change the route
+  window.location.reload(); // Force a full reload to update the state
+};
+
 
   return (
     <div>

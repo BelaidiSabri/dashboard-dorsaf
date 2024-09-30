@@ -199,8 +199,8 @@ div#button.show {
  .cont {
    display: flex;
    align-items: center;
-   margin-top: 30px;
-   margin-bottom: 30px;
+  /*  margin-top: 30px;
+   margin-bottom: 30px; */
 }
 
  .text {
@@ -397,8 +397,8 @@ text-decoration: underline  10px #ffd183 ;
 .cont {
     display: flex;
     align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+   /*  margin-top: 30px;
+    margin-bottom: 30px; */
 }
 
 
