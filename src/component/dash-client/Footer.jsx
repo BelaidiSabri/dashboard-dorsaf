@@ -9,7 +9,6 @@ function Footer() {
   return (
     <>
     <Sidebar/>
-   
     <div className="foteeeeer">
       <div className="foteer">
         <hr style={{ color: "#00B4CC" }}></hr>

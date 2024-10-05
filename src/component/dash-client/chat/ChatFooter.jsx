@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const ChatFooter = ({ selectedContact, socket }) => {
   const [message, setMessage] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+  const textareaRef = useRef(null);
 
   const handleTyping = () => {
     socket.emit("typing", {
@@ -10,14 +12,11 @@ const ChatFooter = ({ selectedContact, socket }) => {
     });
     setTimeout(() => {
       socket.emit("typing", { message: "", receiver: selectedContact._id });
-    }, 2000); // Adjust the typing timeout as needed
+    }, 2000);
   };
 
   const handleSendMessage = (e) => {
-    e.preventDefault(); // Prevent the default form submission
-    console.log(selectedContact._id);
-    console.log(localStorage.getItem("userId"));
-    console.log(message);
+    e.preventDefault();
     if (message.trim() && localStorage.getItem("userId")) {
       socket.emit("message", {
         message,
@@ -25,36 +24,54 @@ const ChatFooter = ({ selectedContact, socket }) => {
         receiver: selectedContact._id,
         timestamp: new Date(),
       });
-      setMessage(""); // Clear the input after sending
+      setMessage(""); // Clear input after sending
     }
   };
 
   const handleKeyDown = (e) => {
-    // Check if Enter is pressed without Shift
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault(); // Prevent the default behavior
-      handleSendMessage(e); // Call the send message function
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage(e);
     }
   };
+
+  const adjustTextareaHeight = () => {
+    const textarea = textareaRef.current;
+    textarea.style.height = "auto"; // Reset the height
+    textarea.style.height = Math.min(textarea.scrollHeight, 150) + "px"; // Set to scroll height with max 150px
+  };
+
+  useEffect(() => {
+    adjustTextareaHeight();
+  }, [message]);
 
   return (
     <footer className="chat__footer">
       <form className="form" onSubmit={handleSendMessage}>
         <textarea
+          ref={textareaRef}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          onFocus={handleTyping}
-          onKeyDown={handleKeyDown} // Handle key down event
-          placeholder="Tapez un message..."
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          onKeyDown={handleKeyDown}
+          onInput={adjustTextareaHeight}
+          placeholder="Type a message..."
           className="message-type"
-          rows={1} // Start with one row
-          style={{ overflow: "hidden", resize: "none" }} // Hide the resize handle
+          rows={1}
+          style={{
+            overflow: "hidden",
+            resize: "none",
+            height: isFocused ? "auto" : "40px", // Collapse on blur
+          }}
         />
         <div className="buttons-wrapper">
           <button type="submit" className="send-button">
             <i className="fa fa-paper-plane send-icon" aria-hidden="true"></i>
           </button>
-          <text className="exchange-button" type="button">Échanger</text>
+          <button type="button" className="exchange-button">
+            Échanger
+          </button>
         </div>
       </form>
     </footer>

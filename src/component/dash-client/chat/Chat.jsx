@@ -11,9 +11,12 @@ import ChatIcon from "../../../assets/chat.png";
 const socket = io("http://localhost:5000");
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
+  console.log('messages',messages);
+  
   const [typingStatus, setTypingStatus] = useState("");
   const [selectedContact, setSelectedContact] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+
   const [users, setUsers] = useState([]);
   const lastMessageRef = useRef(null);
   const token = Cookies.get("token");
@@ -82,7 +85,7 @@ const ChatPage = () => {
   }, [messages]);
 
   const selectContact = (contact) => {
-    setMessages([]); // Clear messages when switching contacts
+    // setMessages([]); // Clear messages when switching contacts
     setSelectedContact(contact);
   };
 
@@ -116,6 +119,7 @@ const ChatPage = () => {
                 messages={messages}
                 typingStatus={typingStatus}
                 lastMessageRef={lastMessageRef}
+                user={selectedContact} 
               />
               <ChatFooter selectedContact={selectedContact} socket={socket} />
             </>

@@ -1,6 +1,6 @@
 import React from "react";
 import "../../CSS/NavBar.css";
-import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaBell, FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
 
 const NavBar = () => {
   return (
@@ -27,7 +27,7 @@ const NavBar = () => {
           <FaSearch className="search-icon" />
         </div>
         <div className="navbar-icons">
-          <FaShoppingCart className="navbar-icon" />
+          <FaBell className="navbar-icon" />
           <details className="dropdo">
             <summary role="button">
               <a className="buttonnnnnt"><img src="/ranger-ses-livres_900.jpg" style={{height:"35px", width:'35px',borderRadius:" 80px",margin:'0px 20px'}}></img></a>
